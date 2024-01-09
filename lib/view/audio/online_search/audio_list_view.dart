@@ -28,14 +28,22 @@ class AudioListView extends StatelessWidget {
             LimitedWidthText(
               audioList[index].name,
               maxWidth: 300,
-              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+                color: Colors.white,
+                shadows: _textShadow,
+              ),
             ),
             LimitedWidthText(
               audioList[index].username,
               maxWidth: 200,
-              style: const TextStyle(fontSize: 16),
+              style: TextStyle(fontSize: 16, color: Colors.white, shadows: _textShadow),
             ),
           ],
         ),
       );
+
+  List<BoxShadow> get _textShadow =>
+      [const BoxShadow(color: Colors.black, blurRadius: 4, offset: Offset(1, 1))];
 }
