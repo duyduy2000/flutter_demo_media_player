@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demo_mp/model/dto/dto.dart';
+import 'package:flutter_demo_mp/model/mapper/audio.dart';
 import 'package:flutter_demo_mp/model/repository/audio_repository.dart';
+import 'package:flutter_demo_mp/view/audio/online_search/audio_list_view.dart';
 import 'package:flutter_demo_mp/view/widget/widget.dart';
+
+import '../../../model/dto/audio_list_dto.dart';
 
 class AudioOnlineSearchScreen extends StatefulWidget {
   const AudioOnlineSearchScreen({super.key});
@@ -25,12 +28,7 @@ class _AudioOnlineSearchScreenState extends State<AudioOnlineSearchScreen> {
             return Center(child: Text(snapshot.error.toString()));
           }
 
-          return Center(
-            child: Text(
-              snapshot.data?.results?[0].name ?? "data",
-              style: const TextStyle(color: Colors.black),
-            ),
-          );
+          return AudioListView(audioList: snapshot.data!.toModel());
         },
       ),
     );

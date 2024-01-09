@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 
 import '../../common/network/key.dart';
-import '../dto/dto.dart';
+import '../dto/audio_list_dto.dart';
 
 class AudioRepository {
   Dio get dio => Dio(BaseOptions(
